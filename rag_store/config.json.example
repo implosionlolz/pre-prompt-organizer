@@ -1,0 +1,15 @@
+{
+  "created_at": "",
+  "input_dir": "past_chat_MD/md_sessions",
+  "file_count": 0,
+  "chunk_count": 0,
+  "chunk_size_rounds": 10,
+  "overlap_rounds": 2,
+  "max_chunk_chars": 6000,
+  "chunk_overlap_chars": 300,
+  "embedding_model": "text-embedding-3-large",
+  "dim": 3072,
+  "normalize": true,
+  "faiss_index": "IndexFlatIP"
+}
+

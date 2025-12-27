@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+
+# Virtual envs
+.venv/
+venv/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Markdown (usually personal notes / generated exports)
+*.md
+*.markdown
+!README.md
+
+# Personal / identity data (do not commit)
+profile.md
+personal_limbo_MD/
+personal_stable_MD/
+
+# Chat exports / conversation logs
+# 忽略目錄內所有內容，但保留目錄結構（允許 .gitkeep）
+past_chat_MD/**
+!past_chat_MD/.gitkeep
+!past_chat_MD/md_sessions/
+past_chat_MD/md_sessions/**
+!past_chat_MD/md_sessions/.gitkeep
+
+# Local RAG stores / embeddings (rebuildable + may contain sensitive text)
+# 忽略目錄內所有內容，但保留目錄結構（允許 .gitkeep 和範例檔案）
+rag_store/**
+!rag_store/.gitkeep
+!rag_store/config.json.example
+rag_store_test/
+*.sqlite3
+*.faiss
+
+# Logs
+# 忽略目錄內所有內容，但保留目錄結構（允許 .gitkeep）
+logs/**
+!logs/.gitkeep
+!logs/sessions/
+logs/sessions/**
+!logs/sessions/.gitkeep
+
+
+

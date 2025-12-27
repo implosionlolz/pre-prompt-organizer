@@ -1,0 +1,4 @@
+# 此檔案用於保留目錄結構
+# 此目錄用於存放 RAG 儲存資料，包含 embeddings 和索引檔案
+# 個人資料不會被 Git 追蹤，請參考 config.json.example 建立自己的設定
+

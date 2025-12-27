@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pre-prompt info organizer</title>
+    <link rel="stylesheet" href="/web/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <div>
+          <div class="title">Pre-prompt info organizer</div>
+          <div class="subtitle">把你的問題轉成可直接貼給外部模型的最小必要 context</div>
+        </div>
+      </header>
+
+      <section class="panel">
+        <div class="grid">
+          <div class="col">
+            <label class="label" for="question">你的問題</label>
+            <textarea
+              id="question"
+              class="textarea"
+              rows="3"
+              placeholder="貼上你要問外部模型的問題（越精確越好）"
+            ></textarea>
+            <label class="label" for="style">回答模板 / 情境</label>
+            <select id="style" class="select">
+              <option value="auto" selected>auto（依問題自動推斷）</option>
+              <option value="general">general（通用、務實）</option>
+              <option value="academic">academic（學術、結構化）</option>
+              <option value="life">life（人生、反思）</option>
+              <option value="quick">quick（生活快解、極簡）</option>
+            </select>
+            <div class="row">
+              <button id="btnConvert" class="btn primary">轉換</button>
+              <div id="status" class="status"></div>
+            </div>
+
+            <div class="settings">
+              <details>
+                <summary>進階設定（可不管）</summary>
+                <div class="settings-grid">
+                  <label>
+                    <span>min_score</span>
+                    <input id="minScore" type="number" step="0.01" value="0.22" />
+                  </label>
+                  <label>
+                    <span>max_profile_facts</span>
+                    <input id="maxProfileFacts" type="number" step="1" value="4" />
+                  </label>
+                  <label>
+                    <span>max_items</span>
+                    <input id="maxItems" type="number" step="1" value="4" />
+                  </label>
+                  <label>
+                    <span>max_retrieved_chars</span>
+                    <input id="maxRetrievedChars" type="number" step="100" value="3200" />
+                  </label>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <div class="col side">
+            <div class="side-title">本次引用了哪些個人檔案欄位</div>
+            <div id="profileFacts" class="facts empty">（尚未轉換）</div>
+
+            <div class="side-title">本次模板（除錯用）</div>
+            <div id="styleInfo" class="facts empty">（尚未轉換）</div>
+
+            <div class="side-title">本次 log（除錯用）</div>
+            <div id="logInfo" class="facts empty">（尚未轉換）</div>
+
+            <div class="settings">
+              <details>
+                <summary>壓縮模型/模式（除錯用）</summary>
+                <div id="compressInfo" class="facts empty">（尚未轉換）</div>
+                <div class="row">
+                  <button id="btnModels" class="btn secondary" type="button">列出後端可用模型</button>
+                  <div class="status">（用來填 RAG_COMPRESS_MODEL）</div>
+                </div>
+                <div id="modelsList" class="facts empty">（尚未載入）</div>
+              </details>
+            </div>
+
+            <div class="settings">
+              <details>
+                <summary>檢索片段（除錯用，不會進入輸出框）</summary>
+                <div id="retrievedRaw" class="facts empty">（尚未轉換）</div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head" style="display:grid; grid-template-columns: 1fr auto; align-items:center; gap:12px;">
+          <label class="label" for="output" style="margin:0">輸出（可直接複製貼給外部模型）</label>
+          <button id="btnCopy" class="btn secondary" disabled type="button">複製輸出</button>
+        </div>
+        <textarea id="output" class="textarea mono" rows="16" readonly placeholder="按下「轉換」後會出現在這裡"></textarea>
+      </section>
+    </main>
+
+    <script src="/web/app.js"></script>
+  </body>
+</html>
+
+

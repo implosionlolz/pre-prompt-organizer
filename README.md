@@ -15,6 +15,10 @@ uvicorn app:app --reload --host 127.0.0.1 --port 8000
 
 另外，後端的 session JSON log 也新增了 `RAG_LOG_INCLUDE_CONTENT`：預設為 0 時，log 會自動把 `question/prompt/檢索片段原文/expand queries` 等內容打碼，只留下除錯必需的結構與分數資訊。這是為了降低你或貢獻者在分享 log 時不小心外洩的風險，但最穩妥的做法仍然是不要把 `logs/` 放進版本控制。
 
+### 授權
+
+本專案採用 MIT 授權協議。詳見 [LICENSE](LICENSE) 檔案。
+
 ### 安裝（務必在 `.venv` 內）
 
 在專案根目錄建立虛擬環境並安裝依賴（建議用較新的 Python 版本，避免 `numpy/faiss` wheel 不相容）：
